@@ -1,5 +1,5 @@
 {
-    "name": "kubis/resource-filtering",
+    "name": "marcoskubis/resource-filtering",
     "description": "Laravel resource filtering for Eloquent Models",
     "type": "library",
     "require-dev": {
