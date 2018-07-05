@@ -52,7 +52,7 @@ class ProductSearch extends Searchable
     }
 
     /**
-     * Optional, but very useful: Add custom filter.
+     * Optional, but very useful: Add custom filter. See below the example with 'my_custom_filter'.
      * @return Builder
      */
     function getMyCustomFilterFilter ($builder, $value) {
