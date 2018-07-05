@@ -1,6 +1,6 @@
 # Laravel resource filtering for Eloquent models
 
-* Requires Laravel Scout
+* For search by term, you must use Laravel Scout
 
 ## Instalation
 `composer require marcoskubis/resource-filtering`
@@ -50,6 +50,14 @@ class ProductSearch extends Searchable
             'updated_at',
         ];
     }
+
+    /**
+     * Optional, but very useful: Add custom filter.
+     * @return Builder
+     */
+    function getMyCustomFilterFilter ($builder, $value) {
+        return $builder->where('something', $value);
+    }
 }
 
 ```
@@ -66,6 +74,9 @@ ProductSearch::make()->paginate();
 ProductSearch::make()->filter(['name' => "My Product Name"])->get();
 ProductSearch::make()->filter(['category_id' => 1)->get();
 ProductSearch::make()->filter(['category_id' => 1)->paginate();
+
+// Filter by a custom filter
+ProductSearch::make()->filter(['my_custom_filter' => 'some value')->paginate();
 
 // To sort by field
 ProductSearch::make()->sorting(['name' => 'desc'])->get();
