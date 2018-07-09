@@ -94,7 +94,7 @@ trait SortingBehavior {
      */
     private function applyRelationSorting(String $sortingName, String $sort)
     {
-        [$relationName, $relationField] = explode('.', $sortingName);
+        list($relationName, $relationField) = explode('.', $sortingName);
 
         $relation = $this->query->getRelation($relationName);
 
